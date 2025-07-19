@@ -1,0 +1,56 @@
+# TASK 1 ( CODSOFT )
+# Create a simple to-do list application that allows users to add, view, mark as done
+# and delete tasks. Use a list to store tasks, where each task is a dictionary with keys
+# 'task' and 'done'. The 'done' key should be a boolean indicating whether the task is completed.
+# Implement a simple text-based menu for user interaction.
+
+
+
+tasks = []
+def show_tasks():
+    if not tasks:
+        print("No tasks yet!")
+    for i, t in enumerate(tasks, 1):
+        status = "✓" if t["done"] else "✗"
+        print(f"{i}. [{status}] {t['task']}")
+
+def add_task():
+    task = input("Enter new task: ")
+    tasks.append({"task": task, "done": False})
+    print("Task added!")
+
+def mark_done():
+    show_tasks()
+    num = int(input("Task number to mark done: ")) - 1
+    if 0 <= num < len(tasks):
+        tasks[num]["done"] = True
+        print("Marked as done!")
+
+def delete_task():
+    show_tasks()
+    num = int(input("Task number to delete: ")) - 1
+    if 0 <= num < len(tasks):
+        tasks.pop(num)
+        print("Task deleted!")
+
+while True:
+    print("\n--- TO-DO MENU ---")
+    print("1. Show Tasks")
+    print("2. Add Task")
+    print("3. Mark Task Done")
+    print("4. Delete Task")
+    print("5. Exit")
+
+    choice = input("Choose: ")
+
+    if choice == "1": show_tasks()
+    elif choice == "2": add_task()
+    elif choice == "3": mark_done()
+    elif choice == "4": delete_task()
+    elif choice == "5":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice!")
+
+
