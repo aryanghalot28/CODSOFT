@@ -1,0 +1,23 @@
+# TASK 2 (CALCULATOR)
+#Design a simple calculator with basic arithmetic operations. Prompt the user to input two numbers and an operation choice. Perform the calculation and display the result.
+
+num1=float(int(input("Enter first number: ")))
+num2=float(int(input("Enter second number: ")))
+operation=input("Enter operation (+, -, *, /): ")
+if operation == '+':
+    result = num1 + num2
+    print("Result:", result)
+elif operation == '-':
+    result = num1 - num2
+    print("Result:", result)
+elif operation == '*':
+    result = num1 * num2
+    print("Result:", result)
+elif operation == '/':
+    if num2 != 0:
+        result = num1 / num2    
+        print("Result:", result)
+    else:
+        result = "Error: Division by zero" 
+
+
